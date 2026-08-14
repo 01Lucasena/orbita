@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import { collection, addDoc, serverTimestamp, doc, updateDoc, increment } from "firebase/firestore"
 import { db } from "../firebase/config"
 import { useComments } from "../hooks/useComments"
@@ -15,6 +16,7 @@ export default function ComentariosDoPost({ postId, user }) {
     await addDoc(collection(db, "posts", postId, "comments"), {
         authorId: user.uid,
         authorName: user.displayName,
+        authorPhoto: user.photoURL || '',
         text: texto,
         createdAt: serverTimestamp()
     })
@@ -38,9 +40,12 @@ export default function ComentariosDoPost({ postId, user }) {
         </form>
 
         <div>
-            {comments.map((comment) => (
+           {comments.map((comment) => (
             <div key={comment.id}>
-                <strong>{comment.authorName}</strong>
+                {comment.authorPhoto && (
+                    <img src={comment.authorPhoto} alt={`Foto de ${comment.authorName}`} width="32" />
+                )}
+                <Link to={`/perfil/${comment.authorId}`}>{comment.authorName}</Link>
                 <p>{comment.text}</p>
             </div>
             ))}
