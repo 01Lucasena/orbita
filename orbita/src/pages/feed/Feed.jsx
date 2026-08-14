@@ -1,4 +1,5 @@
 import { useAuth } from "../../context/AuthContext"
+import { Link } from "react-router-dom"
 import { useState } from "react"
 import { usePosts } from "../../hooks/usePosts"
 import { toggleLike } from "../../hooks/useLike"
@@ -22,6 +23,7 @@ export default function Feed() {
       await addDoc(collection(db, "posts"), {
         authorId: user.uid,
         authorName: user.displayName,
+        authorPhoto: user.photoURL || '',
         text: texto,
         createdAt: serverTimestamp(),
         likeCount: 0,
@@ -52,7 +54,10 @@ export default function Feed() {
 
           return (
             <div key={post.id}>
-              <p>{post.authorName}</p>
+              {post.authorPhoto && (
+                <img src={post.authorPhoto} alt={post.authorName} width="32" />
+              )}
+              <Link to={`/perfil/${post.authorId}`}>{post.authorName}</Link>
               <p>{post.text}</p>
               <button onClick={() => toggleLike(post.id, user.uid)}>
                 {jaCurtiu ? "❤️" : "🤍"} {post.likeCount}
