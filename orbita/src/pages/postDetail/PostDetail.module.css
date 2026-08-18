@@ -1,0 +1,11 @@
+.page {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.loadingText {
+  text-align: center;
+  color: var(--color-dust);
+  padding: 3rem 0;
+}
