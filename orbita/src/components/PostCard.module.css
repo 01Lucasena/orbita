@@ -1,0 +1,108 @@
+.postCard {
+  background-color: var(--color-surface);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+}
+
+.postHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 0.5rem;
+}
+
+.avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.authorLink {
+  color: var(--color-star);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+}
+
+.authorLink:hover {
+  color: var(--color-gold);
+}
+
+.postText {
+  margin: 0 0 0.75rem;
+  color: var(--color-star);
+  line-height: 1.5;
+}
+
+.postActions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.actionButton {
+  background: none;
+  border: none;
+  color: var(--color-dust);
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.actionButton:hover {
+  filter: drop-shadow(0 0 6px var(--color-blue));
+  color: var(--color-star);
+}
+
+.timestamp {
+  color: var(--color-dust);
+  font-size: 0.8125rem;
+  margin-left: auto;
+}
+
+.deleteButton {
+  display: flex;
+  align-items: center;
+  background: none;
+  border-radius: 0.5rem;
+  color: var(--color-dust);
+  padding: 0.375rem 0.625rem;
+  margin-left: auto;
+  cursor: pointer;
+  border: none;
+}
+
+.deleteButton:hover {
+  filter: drop-shadow(0 0 6px var(--color-danger));
+  color: var(--color-danger);
+}
+
+.commentsWrapper {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.25s ease;
+}
+
+.commentsWrapper.open {
+  max-height: 600px;
+  opacity: 1;
+}
+
+@keyframes comet-pulse {
+  0% { transform: rotate(-75deg) scale(1); }
+  40% { transform: rotate(-75deg) scale(1.4); }
+  100% { transform: rotate(-75deg) scale(1); }
+}
+
+.cometIcon {
+  transform: rotate(-75deg);
+  transition: color 0.15s ease;
+}
+
+.cometPulse {
+  animation: comet-pulse 0.3s ease;
+}
