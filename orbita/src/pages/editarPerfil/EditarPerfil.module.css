@@ -1,0 +1,188 @@
+.page {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.cover {
+  height: 12rem;
+  background-color: var(--color-surface);
+  background-image: linear-gradient(135deg, var(--color-surface), #262749);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coverUploadButton {
+  border-radius: 50px;
+  border: none;
+  background-color: var(--color-surface);
+  color: var(--color-star);
+  padding: 0.75rem;
+  cursor: pointer;
+  display: flex;
+}
+
+.coverUploadButton:hover {
+  filter: brightness(1.1);
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.header {
+  padding: 0 1.25rem 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.avatarWrapper {
+  position: relative;
+  width: fit-content;
+  margin-top: -3rem;
+  margin-bottom: 0.75rem;
+  z-index: 3;
+}
+
+.avatarWrapper > *:first-child {
+  border: 4px solid var(--color-ink);
+  border-radius: 9999px;
+  display: block;
+}
+
+.avatarUploadButton {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  border: 2px solid var(--color-ink);
+  border-radius: 9999px;
+  background-color: var(--color-star);
+  color: var(--color-ink);
+  padding: 0.375rem;
+  cursor: pointer;
+  display: flex;
+}
+
+.nameRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 500;
+  color: var(--color-star);
+  margin: 0;
+}
+
+.pencilButton {
+  background: none;
+  border: none;
+  color: var(--color-dust);
+  cursor: pointer;
+  display: flex;
+  padding: 0.25rem;
+}
+
+.pencilButton:hover {
+  color: var(--color-star);
+}
+
+.bio {
+  color: var(--color-dust);
+  font-size: 0.9375rem;
+  margin: 0.375rem 0 0;
+  max-width: 28rem;
+}
+
+.infoEdit {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  margin-top: 0.5rem;
+}
+
+.nameInput,
+.bioInput {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: var(--color-surface);
+  color: var(--color-star);
+  padding: 0.625rem 0.875rem;
+  font-size: 0.9375rem;
+  font-family: inherit;
+}
+
+.bioInput {
+  min-height: 4rem;
+  resize: none;
+}
+
+
+.infoEditActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.confirmButton,
+.cancelButton {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+
+.confirmButton {
+  border-radius: 50px;
+  border: none;
+  background-color: var(--color-star);
+  color: var(--color-ink);
+}
+
+.confirmButton:hover{
+  filter: brightness(1.1);
+}
+
+.cancelButton {
+  border: none;
+  background: none;
+  color: var(--color-dust);
+}
+
+.error {
+  font-size: 0.875rem;
+  color: var(--color-danger);
+  margin: 0.75rem 0 0;
+}
+
+.saveRow {
+  margin-top: 1.25rem;
+}
+
+.btnPrimary {
+  border: none;
+  border-radius: 50px;
+  background-color: var(--color-star);
+  color: var(--color-ink);
+  padding: 0.625rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btnPrimary:hover {
+  filter: brightness(1.1);
+}
+
+.btnPrimary:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
