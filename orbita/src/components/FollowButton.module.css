@@ -1,0 +1,35 @@
+.follow {
+  border: none;
+  border-radius: 50rem;
+  background-color: var(--color-star);
+  color: var(--color-ink);
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.follow:hover {
+  filter: brightness(1.1);
+}
+
+.following {
+  border: 1px solid var(--color-dust);
+  border-radius: 50rem;
+  background: transparent;
+  color: var(--color-dust);
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.following:hover {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+.follow, .following {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}

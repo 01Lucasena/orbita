@@ -1,19 +1,17 @@
 import { useAuth } from "../../context/AuthContext"
-import { Link } from "react-router-dom"
 import { useState } from "react"
 import { usePosts } from "../../hooks/usePosts"
-import { toggleLike } from "../../hooks/useLike"
 import { useUserLikes } from "../../hooks/useUserLikes"
-import { collection, addDoc, serverTimestamp, doc, getDoc, setDoc, deleteDoc, updateDoc, increment } from "firebase/firestore"
-import ComentariosDoPost from "../../components/ComentariosDoPost"
+import { collection, addDoc, serverTimestamp } from "firebase/firestore"
+import PostCard from "../../components/PostCard"
 import { db } from "../../firebase/config"
+import styles from "./Feed.module.css"
 
 export default function Feed() {
   const { user } = useAuth()
   const { posts, carregando } = usePosts()
   const [texto, setTexto] = useState('')
   const likedPostIds = useUserLikes(user?.uid)
-  const [postAberto, setPostAberto] = useState(null)
 
   const criarPost = async (evento) => {
     evento.preventDefault()
@@ -36,41 +34,22 @@ export default function Feed() {
   }
 
   return (
-    <div>
-      <form onSubmit={criarPost}>
+    <div className={styles.page}>
+      <form onSubmit={criarPost} className={styles.postForm}>
         <textarea
           value={texto}
           onChange={(e) => setTexto(e.target.value)}
           placeholder="No que você está pensando?"
         />
-        <button>Postar</button>
+        <button className={styles.btnPrimary}>Postar</button>
       </form>
 
-      <div>
-        {carregando && <p>Carregando posts...</p>}
+      <div className={styles.postList}>
+        {carregando && <p className={styles.loadingText}>Carregando posts...</p>}
 
-        {posts.map((post) => {
-          const jaCurtiu = likedPostIds.includes(post.id)
-
-          return (
-            <div key={post.id}>
-              {post.authorPhoto && (
-                <img src={post.authorPhoto} alt={post.authorName} width="32" />
-              )}
-              <Link to={`/perfil/${post.authorId}`}>{post.authorName}</Link>
-              <p>{post.text}</p>
-              <button onClick={() => toggleLike(post.id, user.uid)}>
-                {jaCurtiu ? "❤️" : "🤍"} {post.likeCount}
-              </button>
-              <button onClick={() => setPostAberto(postAberto === post.id ? null : post.id)}>
-                Comentários ({post.commentCount})
-              </button>
-              {postAberto === post.id && (
-                <ComentariosDoPost postId={post.id} user={user} />
-              )}
-            </div>
-          )
-        })}
+        {posts.map((post) => (
+          <PostCard key={post.id} post={post} user={user} likedPostIds={likedPostIds} />
+        ))}
       </div>
     </div>
   )

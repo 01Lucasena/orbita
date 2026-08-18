@@ -1,0 +1,85 @@
+.wrapper {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.form input {
+  flex: 1;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: var(--color-ink);
+  color: var(--color-star);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.form input::placeholder {
+  color: rgba(139, 136, 156, 0.6);
+}
+
+.sendButton {
+  border: none;
+  border-radius: 50px;
+  background-color: var(--color-star);
+  color: var(--color-ink);
+  padding: 0.5rem 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sendButton:hover {
+  filter: brightness(1.1);
+}
+
+.commentList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.comment {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.avatar {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 9999px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.commentBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.authorLink {
+  color: var(--color-star);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.8125rem;
+}
+
+.authorLink:hover {
+  color: var(--color-gold);
+}
+
+.commentText {
+  margin: 0;
+  color: var(--color-dust);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}

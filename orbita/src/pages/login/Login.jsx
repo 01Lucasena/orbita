@@ -4,6 +4,7 @@ import { signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from "../../firebase/config"
 import { useAuth } from "../../context/AuthContext"
 import { traduzirErroFirebase } from "../../utils/traduzirErroFirebase"
+import OrbitaLogo from "../../assets/svg/OrbitaLogo.svg"
 import styles from './Login.module.css'
 
 export default function Login() {
@@ -35,18 +36,38 @@ export default function Login() {
     }
     
     return <>
-        <form onSubmit={enviarDados}>
-            <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Digite seu e-mail." />
-            <input type="password" value={senha} onChange={(e) => setSenha(e.target.value)} placeholder="Digite sua senha." />
-            {erro && <p style={{ color: 'red' }}>{erro}</p>}
-            <button disabled={carregando}>
-                {carregando ? "Entrando..." : "Fazer login"}
-            </button>
-            <button type="button" onClick={() => loginWithGoogle()}>Entrar com Google</button>
-            <Link to="/recuperar-senha">Esqueceu a senha?</Link>
-            <Link to="/cadastro">Não tem uma conta? Cadastre-se</Link>
-        </form>
         
+        <div className={styles.pageCenter}>
+        <div className={styles.card}>
+            <div className={styles.header}>
+            <img 
+                src={OrbitaLogo} 
+                alt="Órbita"
+                className={styles.logo}
+            /> 
+            <p className={styles.subtitle}>Entre para ver o que gira ao seu redor.</p>
+            </div>
+
+            <form onSubmit={enviarDados} className={styles.form}>
+                <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Digite seu e-mail." />
+                <input type="password" value={senha} onChange={(e) => setSenha(e.target.value)} placeholder="Digite sua senha." />
+
+                {erro && <p className={styles.error}>{erro}</p>}
+
+                <button disabled={carregando} className={styles.btnPrimary}>
+                    {carregando ? "Entrando..." : "Fazer login"}
+                </button>
+                <button type="button" onClick={() => loginWithGoogle()} className={styles.btnGoogle}>
+                Entrar com Google
+                </button>
+            </form>
+
+            <div className={styles.links}>
+                <Link to="/recuperar-senha">Esqueceu a senha?</Link>
+                <Link to="/cadastro">Criar conta</Link>
+            </div>
+        </div>
+        </div>
     </>
 }
    
