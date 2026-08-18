@@ -1,0 +1,105 @@
+.wrapper {
+  position: relative;
+}
+
+.bellButton {
+  position: relative;
+  background: none;
+  border: none;
+  color: var(--color-star);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transform: scale(1.5);
+}
+
+.badge {
+  position: absolute;
+  top: -3px;
+  right: -0.75px;
+  background-color: var(--color-danger);
+  color: white;
+  font-size: 0.4625rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  min-width: 0.775rem;
+  height: 0.775rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.2rem;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 1rem);
+  width: 20rem;
+  max-height: 24rem;
+  overflow-y: auto;
+  background-color: var(--color-surface);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+  z-index: 20;
+  opacity: 0;
+  transform: translateY(-8px) scale(0.98);
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.dropdownOpen {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.markAllButton {
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--color-gold);
+  padding: 0.5rem;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  margin-bottom: 0.25rem;
+}
+
+.item {
+  display: flex;
+  gap: 0.625rem;
+  align-items: flex-start;
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.5rem;
+  color: var(--color-star);
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.item:hover {
+  background-color: var(--color-ink);
+}
+
+.itemBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.itemTime {
+  font-size: 0.75rem;
+  color: var(--color-dust);
+}
+
+.unread {
+  background-color: rgba(217, 165, 68, 0.08);
+}
+
+.empty {
+  padding: 1rem;
+  text-align: center;
+  color: var(--color-dust);
+  font-size: 0.875rem;
+  margin: 0;
+}
