@@ -4,7 +4,7 @@ import Login from './pages/login/Login'
 import Feed from "./pages/feed/Feed"
 import Cadastro from "./pages/cadastro/Cadastro"
 import RecuperarSenha from "./pages/recuperarSenha/RecuperarSenha"
-import Navbar from "./components/Navbar"
+import Navbar from "./components/NavBar"
 import ProtectedRoute from "./components/ProtectedRoute"
 import Perfil from "./pages/perfil/Perfil"
 import EditarPerfil from "./pages/editarPerfil/EditarPerfil"
