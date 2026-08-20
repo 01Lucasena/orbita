@@ -43,8 +43,8 @@
   border-radius: 0.5rem;
   color: var(--color-star);
   text-decoration: none;
-  padding: 0.625rem 0.75rem;
-  font-size: 0.875rem;
+  padding: 0.525rem 0.75rem;
+  font-size: 0.675rem;
   cursor: pointer;
   text-align: left;
 }
