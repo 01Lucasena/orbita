@@ -8,6 +8,7 @@ import Navbar from "./components/NavBar"
 import ProtectedRoute from "./components/ProtectedRoute"
 import Perfil from "./pages/perfil/Perfil"
 import EditarPerfil from "./pages/editarPerfil/EditarPerfil"
+import NotFound from "./pages/notFound/NotFound"
 import PostDetail from "./pages/postDetail/PostDetail"
 import { ThemeProvider } from "./context/ThemeContext"
 import ThemedArea from "./components/ThemedArea"
@@ -48,7 +49,8 @@ function App() {
                   <ProtectedRoute>
                     <PostDetail />
                   </ProtectedRoute>
-                } />
+                  } />
+                  <Route path="*" element={<NotFound />} />
               </Routes>
           </ThemedArea>
         </BrowserRouter>

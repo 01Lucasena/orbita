@@ -1,0 +1,44 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1.5rem;
+}
+
+.icon {
+  width: 64px;
+  height: 64px;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+.code {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 500;
+  color: var(--color-star);
+  margin: 0;
+}
+
+.message {
+  color: var(--color-dust);
+  font-size: 1rem;
+  margin: 0.5rem 0 2rem;
+  max-width: 24rem;
+}
+
+.btnPrimary {
+  background-color: var(--color-star);
+  color: var(--color-ink);
+  text-decoration: none;
+  padding: 0.625rem 1.5rem;
+  font-weight: 500;
+  font-size: 0.9375rem;
+}
+
+.btnPrimary:hover {
+  filter: brightness(1.1);
+}
