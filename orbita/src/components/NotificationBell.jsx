@@ -26,9 +26,8 @@ export default function NotificationBell({ userId }) {
         <Bell size={20} />
         {naoLidas > 0 && <span className={styles.badge}>{naoLidas}</span>}
       </button>
-
-      
         <div className={`${styles.dropdown} ${aberto ? styles.dropdownOpen : ''}`}>
+          <h1 className={styles.notificationsTitle}>Notificações</h1>
           {notifications.length === 0 && (
             <p className={styles.empty}>Nenhuma notificação ainda.</p>
           )}
@@ -38,7 +37,6 @@ export default function NotificationBell({ userId }) {
               Marcar todas como lidas
             </button>
           )}
-
           {notifications.map((n) => (
             <Link
               key={n.id}
