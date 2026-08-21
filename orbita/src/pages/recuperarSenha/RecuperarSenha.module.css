@@ -37,7 +37,6 @@
 }
 
 .form input {
-  border-radius: 0.5rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background-color: var(--color-surface);
   color: var(--color-star);
@@ -45,10 +44,6 @@
   font-size: 1rem;
 }
 
-.form input:focus-visible {
-  outline: 2px solid var(--color-gold);
-  outline-offset: 2px;
-}
 
 .success {
   border-radius: 0.5rem;
@@ -68,8 +63,7 @@
 
 .btnPrimary {
   border: none;
-  border-radius: 0.5rem;
-  background-color: var(--color-gold);
+  background-color: var(--color-star);
   color: var(--color-ink);
   padding: 0.625rem 1rem;
   font-size: 1rem;
