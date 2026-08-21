@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "mocha tests/**/*.test.js"
   },
   "dependencies": {
     "firebase": "^12.17.1",
@@ -23,10 +24,15 @@
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.4",
+    "chai": "^6.2.2",
+    "chromedriver": "^152.0.1",
     "eslint": "^10.8.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.3",
     "globals": "^17.7.0",
+    "mocha": "^11.8.0",
+    "selenium-webdriver": "^4.47.0",
     "vite": "^8.2.0"
   }
+
 }
