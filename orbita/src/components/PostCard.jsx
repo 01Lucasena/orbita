@@ -8,6 +8,7 @@ import { deleteDoc, doc } from "firebase/firestore"
 import { db } from "../firebase/config"
 import { Trash2 } from "lucide-react"
 import { TbComet } from "react-icons/tb"
+import ConfirmDialog from "./ConfirmDialog"
 import Avatar from "./Avatar"
 import styles from './PostCard.module.css'
 
@@ -15,6 +16,7 @@ export default function PostCard({ post, user, likedPostIds }) {
   const [comentariosAbertos, setComentariosAbertos] = useState(false)
   const jaCurtiu = likedPostIds.includes(post.id)
   const [animando, setAnimando] = useState(false)
+  const [confirmandoExclusao, setConfirmandoExclusao] = useState(false)
 
   function curtir() {
     toggleLike(post.id, user.uid, user.displayName, user.photoURL)
@@ -22,11 +24,9 @@ export default function PostCard({ post, user, likedPostIds }) {
     setTimeout(() => setAnimando(false), 300)
   }
 
-  const deletarPost = async () => {
-    const confirmar = window.confirm("Tem certeza que quer excluir esse post?")
-    if (!confirmar) return
-
+  async function confirmarExclusao() {
     await deleteDoc(doc(db, "posts", post.id))
+    setConfirmandoExclusao(false)
   }
 
   return (
@@ -58,7 +58,7 @@ export default function PostCard({ post, user, likedPostIds }) {
           <MessageCircle size={18} />{post.commentCount}
         </button>
         {post.authorId === user.uid && (
-          <button className={styles.deleteButton} onClick={deletarPost}>
+          <button className={styles.deleteButton} onClick={() => setConfirmandoExclusao(true)}>
             <Trash2 size={18} />
           </button>
         )}
@@ -66,6 +66,13 @@ export default function PostCard({ post, user, likedPostIds }) {
       <div className={`${styles.commentsWrapper} ${comentariosAbertos ? styles.open : ''}`}>
         <ComentariosDoPost postId={post.id} user={user} />
       </div>
+      <ConfirmDialog
+        aberto={confirmandoExclusao}
+        titulo="Excluir post?"
+        mensagem="Essa ação não pode ser desfeita. O post será removido permanentemente."
+        onConfirmar={confirmarExclusao}
+        onCancelar={() => setConfirmandoExclusao(false)}
+      />
     </div>
   )
 }

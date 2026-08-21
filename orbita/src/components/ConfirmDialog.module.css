@@ -1,0 +1,78 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(20, 20, 31, 0.75);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fade-in 0.15s ease;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.dialog {
+  background-color: var(--color-surface);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 22rem;
+  margin: 0 1rem;
+  animation: dialog-in 0.18s ease;
+}
+
+@keyframes dialog-in {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--color-star);
+  margin: 0 0 0.5rem;
+}
+
+.message {
+  color: var(--color-dust);
+  font-size: 0.9375rem;
+  margin: 0 0 1.5rem;
+  line-height: 1.4;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.cancelButton {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--color-dust);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.cancelButton:hover {
+  color: var(--color-star);
+}
+
+.confirmButton {
+  background-color: var(--color-danger);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.confirmButton:hover {
+  filter: brightness(1.1);
+}
