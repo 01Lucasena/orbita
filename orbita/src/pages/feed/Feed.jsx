@@ -3,6 +3,7 @@ import { useState } from "react"
 import { usePosts } from "../../hooks/usePosts"
 import { useUserLikes } from "../../hooks/useUserLikes"
 import { collection, addDoc, serverTimestamp } from "firebase/firestore"
+import LoadingScreen from "../../components/LoadingScreen"
 import PostCard from "../../components/PostCard"
 import { db } from "../../firebase/config"
 import styles from "./Feed.module.css"
@@ -45,7 +46,7 @@ export default function Feed() {
       </form>
 
       <div className={styles.postList}>
-        {carregando && <p className={styles.loadingText}>Carregando posts...</p>}
+        {carregando && <LoadingScreen />}
 
         {posts.map((post) => (
           <PostCard key={post.id} post={post} user={user} likedPostIds={likedPostIds} />
